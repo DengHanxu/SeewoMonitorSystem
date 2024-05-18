@@ -24,7 +24,7 @@ SeewoMonitor目前有以下两个版本，负责监控进程并以指示块的�
 ### SeewoMonitor2
   
 
-这是`SeewoMonitor`升级版，这个版本除了检测在[原理](#原理)章节提到的三个程序之外，还会监控上传网速，以大约`0.5轮/秒`的速度检测。
+这是`SeewoMonitor`升级版，这个版本除了检测在[原理](#原理)中提到的三个程序之外，还会监控上传网速，以大约`0.5轮/秒`的速度检测。
 下图解释了SeewoMonitor2管理的4个色块的位置和触发条件。
 ![](docs/SeewoMonitor2Example.png)
 
@@ -78,6 +78,7 @@ SeewoMonitor目前有以下两个版本，负责监控进程并以指示块的�
 
 > [!NOTE]
 > `regedit`对屏幕键盘的支持很奇怪，如此方法不行请使用命令行添加。
+
 > [!CAUTION]
 > 注册表是Windows系统的核心数据库，不当的操作可能导致系统异常、崩溃甚至无法开机，> 一般情况下不建议修改注册表，除非你**明确的**知道你正在修改的项或值的作用及后果。
 > 推荐使用`explorer`添加自启动。
@@ -92,6 +93,17 @@ SeewoMonitor目前有以下两个版本，负责监控进程并以指示块的�
 <datails>
 <summary> 使用`cmd`命令行添加 </summary>
 
+> [!CAUTION]
+> 本方法的本质是添加注册表启动项。
+> 注册表是Windows系统的核心数据库，不当的操作可能导致系统异常、崩溃甚至无法开机，
+> 一般情况下不建议修改注册表，除非你**明确的**知道你正在修改的项或值的作用及后果。
+> 推荐使用`explorer`添加自启动。
+
+假设你要添加自启动的程序路径为`D:\test folder\SeewoMonitor.exe`，以管理员或更高权限运行命令行，通过命令创建一个名为SeewoMonitor的自启动项
+
+`reg add "HKCU\Software\Microsoft\Windows\CurrentVetsion\Run" \v SeewoMonitor \t REG_SZ \d "D:\test folder\SeewoMonitor.exe`
+
+注意，自启动项不能重名。
 </datails>
 
 # 局限性
