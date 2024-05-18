@@ -40,7 +40,8 @@ SeewoMonitor目前有以下两个版本，负责监控进程并以指示块的�
 
 监控[原理](#原理)中提到的3个程序和上传网速，如果上传网速低持续1分钟，就尝试终止之前提到的3个程序。
 监控程序不会主动结束进程，因此需要本程序
->[!CAUTION]
+
+>[!IMPORTANT]
 >此程序必须要能够成功调用`Nsudo.exe`才能发挥作用，因为需要提权。如果你有其他提权方案，自行更改此程序源码。
 >有关`Nsudo.exe`，请参阅 [Nsudo](https://github.com/M2TeamArchived/NSudo)
 
@@ -55,33 +56,36 @@ SeewoMonitor目前有以下两个版本，负责监控进程并以指示块的�
 > 要使用`RubbishCleaner.exe`，请注意`Nsudo.exe`
 
 ## 添加自启动（可选）
-> [!CAUTION]
-> 执行此操作前请确保`冰点还原`处于关闭状态，打开`explorer`，如果`C`盘是下图所示状态，则表明`C`盘被冻结，添加的自启动重启就会失效。<br>
+> [!IMPORTANT]
+> 执行此操作前请确保`冰点还原`处于关闭状态，打开`explorer`，如果`C`盘是下图所示状态，则表明`C`盘被冻结，添加的自启动重启就会失效。
+> 
 > ![](docs/FreezedC.png)
-> 如果`冰点还原`是开启状态，你需要先关闭`冰点还原`，有关无密码关`冰点还原`的方法，稍后会补充。
+> 
+> 如果`冰点还原`是开启状态，你需要先关闭`冰点还原`，有关无密码关`冰点还原`的方法，预计1月后补充。
 
 添加自启动有3种方法，可以使用`explorer``regedit`或`cmd`添加。
 
 <detail>
-  <summary>
-    使用`explorer`添加（最安全）
-  </summary>
+  <summary> 使用`explorer`添加（最安全） </summary>
   打开`explorer`，在地址栏输入`shell:startup`，将指向想要添加自启动的程序的快捷方式复制进入即可
 </detail>
 
 <detail>
-  <summary>
-    使用`regedit`进行图形化操作
-  </summary>
-  注意：`regedit`对屏幕键盘的支持很奇怪，如此方法不行请使用命令行添加。
+  <summary> 使用`regedit`进行图形化操作 </summary>
+  > [!NOTE]
+  > `regedit`对屏幕键盘的支持很奇怪，如此方法不行请使用命令行添加。
+  > [!CAUTION]
+  > 注册表是Windows系统的核心数据库，不当的操作可能导致系统异常、崩溃甚至无法开机，
+  > 一般情况下不建议修改注册表，除非你**明确的**知道你正在修改的项或值的作用及后果。
+  > 推荐使用`explorer`添加自启动。
   1. 按下`Win`+`R`，输入`regedit`并回车。
   2. 定位到`计算机\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run`，选中`Run`，右边展示的就是部分自启动项（因为Windows的自启动有多个设置的地方，启动优先级互不相同）。
+  3. 在右侧右键，`新建`->`字符串值`，随便起一个名字（最好为英文）
+  4. 双击新建的值，将要自启动的程序绝对路径填入即可。
 </detail>
 
 <datail>
-  <summary>
-    使用`cmd`命令行添加
-  </summary>
+  <summary> 使用`cmd`命令行添加 </summary>
 </datail>
 
 # 局限性
