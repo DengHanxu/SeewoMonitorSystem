@@ -76,8 +76,7 @@ SeewoMonitor目前有以下两个版本，负责监控进程并以指示块的�
 <details>
 <summary> 使用`regedit`进行图形化操作 </summary>
 
-> [!NOTE]
-> `regedit`对屏幕键盘的支持很奇怪，如此方法不行请使用命令行添加。
+注意：`regedit`对屏幕键盘的支持很奇怪，如此方法不行请使用命令行添加。
 
 > [!CAUTION]
 > 注册表是Windows系统的核心数据库，不当的操作可能导致系统异常、崩溃甚至无法开机，> 一般情况下不建议修改注册表，除非你**明确的**知道你正在修改的项或值的作用及后果。
@@ -90,7 +89,7 @@ SeewoMonitor目前有以下两个版本，负责监控进程并以指示块的�
 
 </details>
 
-<datails>
+<details>
 <summary> 使用`cmd`命令行添加 </summary>
 
 > [!CAUTION]
@@ -104,7 +103,8 @@ SeewoMonitor目前有以下两个版本，负责监控进程并以指示块的�
 `reg add "HKCU\Software\Microsoft\Windows\CurrentVetsion\Run" \v SeewoMonitor \t REG_SZ \d "D:\test folder\SeewoMonitor.exe`
 
 注意，自启动项不能重名。
-</datails>
+
+</details>
 
 # 局限性
 
