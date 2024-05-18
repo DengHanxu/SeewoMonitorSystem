@@ -65,12 +65,12 @@ SeewoMonitor目前有以下两个版本，负责监控进程并以指示块的�
 
 添加自启动有3种方法，可以使用`explorer``regedit`或`cmd`添加。
 
-<detail>
+<details>
 <summary> 使用`explorer`添加（最安全） </summary>
 打开`explorer`，在地址栏输入`shell:startup`，将指向想要添加自启动的程序的快捷方式复制进入即可
-</detail>
+</details>
 
-<detail>
+<details>
 <summary> 使用`regedit`进行图形化操作 </summary>
 > [!NOTE]
 > `regedit`对屏幕键盘的支持很奇怪，如此方法不行请使用命令行添加。
@@ -81,11 +81,11 @@ SeewoMonitor目前有以下两个版本，负责监控进程并以指示块的�
 2. 定位到`计算机\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run`，选中`Run`，右边展示的就是部分自启动项（因为Windows的自启动有多个设置的地方，启动优先级互不相同）。
 3. 在右侧右键，`新建`->`字符串值`，随便起一个名字（最好为英文）
 4. 双击新建的值，将要自启动的程序绝对路径填入即可。
-</detail>
+</details>
 
-<datail>
+<datails>
 <summary> 使用`cmd`命令行添加 </summary>
-</datail>
+</datails>
 
 # 局限性
 
