@@ -62,49 +62,9 @@ SeewoMonitor目前有以下两个版本，负责监控进程并以指示块的�
 > 
 > ![](docs/FreezedC.png)
 > 
-> 如果`冰点还原`是开启状态，你需要先关闭`冰点还原`，有关无密码关`冰点还原`的方法，预计1月后补充。
+> 如果`冰点还原`是开启状态，你需要先关闭`冰点还原`。
 
-添加自启动有3种方法，可以使用`explorer``regedit`或`cmd`添加。
-
-<details>
-<summary> 使用`explorer`添加（最安全） </summary>
-
-打开`explorer`，在地址栏输入`shell:startup`，将指向想要添加自启动的程序的快捷方式复制进入即可
-
-</details>
-
-<details>
-<summary> 使用`regedit`进行图形化操作 </summary>
-
-注意：`regedit`对屏幕键盘的支持很奇怪，如此方法不行请使用命令行添加。
-
-> [!CAUTION]
-> 注册表是Windows系统的核心数据库，不当的操作可能导致系统异常、崩溃甚至无法开机，> 一般情况下不建议修改注册表，除非你**明确的**知道你正在修改的项或值的作用及后果。
-> 推荐使用`explorer`添加自启动。
-
-1. 按下`Win`+`R`，输入`regedit`并回车。
-2. 定位到`计算机\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run`，选中`Run`，右边展示的就是部分自启动项（因为Windows的自启动有多个设置的地方，启动优先级互不相同）。
-3. 在右侧右键，`新建`->`字符串值`，随便起一个名字（最好为英文）
-4. 双击新建的值，将要自启动的程序绝对路径填入即可。
-
-</details>
-
-<details>
-<summary> 使用`cmd`命令行添加 </summary>
-
-> [!CAUTION]
-> 本方法的本质是添加注册表启动项。
-> 注册表是Windows系统的核心数据库，不当的操作可能导致系统异常、崩溃甚至无法开机，
-> 一般情况下不建议修改注册表，除非你**明确的**知道你正在修改的项或值的作用及后果。
-> 推荐使用`explorer`添加自启动。
-
-假设你要添加自启动的程序路径为`D:\test folder\SeewoMonitor.exe`，以管理员或更高权限运行命令行，通过命令创建一个名为SeewoMonitor的自启动项
-
-`reg add "HKCU\Software\Microsoft\Windows\CurrentVetsion\Run" \v SeewoMonitor \t REG_SZ \d "D:\test folder\SeewoMonitor.exe`
-
-注意，自启动项不能重名。
-
-</details>
+具体如何添加自启动自行搜索引擎搜索。
 
 # 局限性
 
